@@ -41,7 +41,7 @@ public class Node {
             message += this.edges.get(i).getEnd().data;
 
             if (weight)
-                message += "("+this.edges.get(i).getWeight()+")";
+                message += " ("+this.edges.get(i).getWeight()+")";
             
             if (i != this.edges.size()-1)
                 message += ", ";             

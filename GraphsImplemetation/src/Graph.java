@@ -17,7 +17,7 @@ public class Graph {
         return vertex;
     }
 
-    public void addEge(Node start, Node end, Integer weight) {
+    public void addEdge(Node start, Node end, Integer weight) {
         if (!weighted)
             weight = null;
 
@@ -27,19 +27,51 @@ public class Graph {
         start.addEdge(end, weight);
 
     }
- 
+    
+    public void removeVertex(Node vertex) {
+        this.vertices.remove(vertex);        
+    }
+
+    public void removeEdge(Node start, Node end) {
+        start.removeEdge(end);
+        if (!this.directed)
+            end.removeEdge(start);
+    }
+
     public ArrayList<Node> getVertices() {
-        return vertices;
+        return this.vertices;
     }
 
     public boolean isWeighted() {
-        return weighted;
+        return this.weighted;
     }
 
     public boolean isDirected() {
-        return directed;
+        return this.directed;
     }
 
+    public Node getVertexByValue(String value) {
+        for (Node vertex : this.vertices) {
+            if (vertex.getData().equals(value)) {
+                return vertex;
+            }
+        }
+        return null;
+    }
+
+    public void print() {
+        for (Node node : this.vertices) {
+            node.print(weighted);
+        }
+    }
     
     
+    public static void main(String[] args) {
+        Graph network = new Graph(true, true);
+        Node vertex1 = network.addVertex("California");
+        Node vertex2 = network.addVertex("Verginia");
+
+        network.addEdge(vertex1, vertex2,300);
+        network.print();        
+    }
 }
