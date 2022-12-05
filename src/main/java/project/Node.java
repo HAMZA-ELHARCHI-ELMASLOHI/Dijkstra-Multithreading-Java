@@ -1,6 +1,8 @@
 package project;
 
-public class Node {
+import java.util.Comparator;
+
+public class Node implements Comparator {
     int id;
     String data;
 
@@ -21,4 +23,8 @@ public class Node {
     }
 
 
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 0;
+    }
 }

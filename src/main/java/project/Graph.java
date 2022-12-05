@@ -1,6 +1,7 @@
 package project;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class Graph {
 
@@ -8,6 +9,10 @@ public class Graph {
     private ArrayList<Edge> edges;
 
     private boolean weighted, directed;
+
+    ArrayList<Integer> distance= new ArrayList<>();
+    ArrayList<Boolean> visited=new ArrayList<>();
+
 
 
     public Graph(boolean weighted, boolean directed) {
@@ -20,6 +25,9 @@ public class Graph {
 
     public void addNode(Node node){
         nodes.add(node);
+        distance.add(Integer.MAX_VALUE);
+        distance.set(0,0);
+        visited.add(false);
     }
 
     public void addEdge(Node start, Node end, int weight){
@@ -51,6 +59,16 @@ public class Graph {
 
     public ArrayList<Edge> getEdges() {
         return edges;
+    }
+
+    public ArrayList<Node> getEdge(Node n){
+        ArrayList<Node> nodesList=new ArrayList<Node>();
+        for (Edge e : edges){
+            if (e.getStart().data==n.data){
+                nodesList.add(e.getEnd());
+            }
+        }
+        return nodesList;
     }
 
     public void showGraph(){
