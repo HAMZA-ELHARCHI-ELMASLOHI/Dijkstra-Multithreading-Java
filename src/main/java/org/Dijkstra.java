@@ -1,4 +1,4 @@
-package dd;
+package org;
 
 public class Dijkstra {
 

@@ -1,7 +1,7 @@
-package dd;
+package org;
 
 public class mainThread {
-
+    // this is using MultiThreading
     public static void main(String[] args) {
 
         int numOfVertices = 5;
@@ -9,8 +9,8 @@ public class mainThread {
         Graph graph = new Graph(adjMat, numOfVertices);
         graph.addEdge(0, 1, 9);
         graph.addEdge(0, 2, 6);
-        graph.addEdge(0, 3, 5);
-        graph.addEdge(0, 4, 3);
+        graph.addEdge(3, 3, 5);
+        graph.addEdge(1, 4, 3);
         graph.addEdge(2, 1, 2);
         graph.addEdge(2, 3, 4);
 

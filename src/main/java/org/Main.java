@@ -1,13 +1,12 @@
-package dd;
+package org;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Arrays;
-import java.util.List;
 
 public class Main{
 
     public static void main(String[] args) {
+
+        //this is normal implementation
         int numOfVertices = 5;
         int[][] adjMat = new int[6][6];
         Graph graph = new Graph(adjMat, numOfVertices);
